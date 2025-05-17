@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
-import { useTheme } from './context/ThemeContext'; 
+import { useTheme } from './context/ThemeContext';
 
 function App() {
   const { theme } = useTheme();
