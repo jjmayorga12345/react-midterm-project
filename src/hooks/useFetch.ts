@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/';
+const baseURL = 'http://localhost:5000/';
 
-const useFetch = (url) => {
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const useFetch = (url: string): {
+  data: any;
+  loading: boolean;
+  error: boolean;
+} => {
+  const [data, setData] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -16,7 +20,7 @@ const useFetch = (url) => {
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
-        setError(error);
+        setError(true);
       } finally {
         setLoading(false);
       }
